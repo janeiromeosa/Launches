@@ -15,10 +15,10 @@ import java.util.List;
 
 public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHolder> {
 
-    private final List<LaunchResponse> results = new ArrayList<>();
+    private final List<Launch> results = new ArrayList<>();
 
 
-    public void setData(List<LaunchResponse> data){
+    public void setData(List<Launch> data){
         results.clear();
         results.addAll(data);
         notifyDataSetChanged();
@@ -34,9 +34,13 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        LaunchResponse launchResponse = results.get(position);
+        Launch launch = results.get(position);
 
-        launchResponse.tvName.setText(launchResponse.getLaunches());
+        holder.tvHolder.setText(launch.getMissions().toString());
+
+
+
+
 
 
 
@@ -50,21 +54,13 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        static TextView tvName;
-        static TextView tvList;
+        TextView tvHolder;
 
-
-       // final TextView mContentView;
 
         ViewHolder(View view) {
             super(view);
-            tvName = view.findViewById(R.id.tv); //this is where the list is going.
-           // mContentView = view.findViewById(R.id.content);
-
+            tvHolder = view.findViewById(R.id.tvHolder); //this is where the list is going.
         }
-    }
-    public interface OnItemSelectedListener{
-      //  void onItemSelected(Result result);
     }
 }
 

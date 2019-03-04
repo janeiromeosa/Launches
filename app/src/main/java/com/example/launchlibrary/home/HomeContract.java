@@ -12,7 +12,7 @@ public interface HomeContract {
     }
 
     interface View{
-        void showLaunches(List<LaunchResponse> launchResponses);
+        void showLaunches(List<Launch> launch);
         void showError(String message);
 
     }

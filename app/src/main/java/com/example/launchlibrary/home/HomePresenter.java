@@ -21,8 +21,8 @@ import java.util.List;
 
 
     @Override
-    public void onSuccess(List<LaunchResponse> launchResponse) {
-        view.showLaunches(launchResponse);
+    public void onSuccess(LaunchResponse launchResponse) {
+        view.showLaunches(launchResponse.getLaunches());
     }
 
     @Override

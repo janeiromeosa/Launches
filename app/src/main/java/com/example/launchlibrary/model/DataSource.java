@@ -7,7 +7,7 @@ public interface DataSource {
     void getLaunchfromDate(String date);
 
     interface DataListener {
-        void onSuccess(List<LaunchResponse> launchResponse);
+        void onSuccess(LaunchResponse launchResponse);
         void onFailure(Throwable throwable);
     }
 }

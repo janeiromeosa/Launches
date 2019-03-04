@@ -10,6 +10,6 @@ import retrofit2.http.Query;
 public interface LaunchLibraryService {
 
     @GET(Constants.LAUNCH_ENDPOINT)
-    Call<List<LaunchResponse>> getLaunchList(@Path("date") String date);
+    Call<LaunchResponse> getLaunchList(@Path("date") String date);
 
 }

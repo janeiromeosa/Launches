@@ -40,16 +40,14 @@ public class RemoteDataSource implements DataSource {
     @Override
     public void getLaunchfromDate(String date) {
 
-        launchLibraryService.getLaunchList(date).enqueue(new Callback<List<LaunchResponse>>() {
+        launchLibraryService.getLaunchList(date).enqueue(new Callback<LaunchResponse>() {
             @Override
-            public void onResponse(Call<List<LaunchResponse>> call, Response<List<LaunchResponse>> response) {
-               if (response.isSuccessful()){
-                    listener.onSuccess(response.body());
-                }
+            public void onResponse(Call<LaunchResponse> call, Response<LaunchResponse> response) {
+                listener.onSuccess(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<LaunchResponse>> call, Throwable t) {
+            public void onFailure(Call<LaunchResponse> call, Throwable t) {
                 listener.onFailure(t);
             }
         });

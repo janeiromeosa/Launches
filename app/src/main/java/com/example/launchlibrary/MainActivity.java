@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.launchlibrary.home.HomeContract;
 import com.example.launchlibrary.home.HomePresenter;
 import com.example.launchlibrary.home.LaunchesAdapter;
+import com.example.launchlibrary.model.Launch;
 import com.example.launchlibrary.model.LaunchResponse;
 
 import java.util.Calendar;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
                 Log.d("MainActivity", "onDateSet: " + year + "-" + month + "-" + dayOfMonth);
                 month = month +1;
 
-                String date = month + "-" + dayOfMonth + "-" + year;
+                String date = String.format("%d-%02d-%02d", year, month, dayOfMonth);
                 displayDate.setText(date);
                 presenter.loadListLaunches(date);
             }
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
     }
 
     @Override
-    public void showLaunches(List<LaunchResponse> launchResponses) {
-        launchesAdapter.setData(launchResponses);
+    public void showLaunches(List<Launch> launch) {
+        launchesAdapter.setData(launch);
     }
 
     @Override
