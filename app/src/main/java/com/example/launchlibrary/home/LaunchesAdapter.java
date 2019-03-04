@@ -37,15 +37,7 @@ public class LaunchesAdapter extends RecyclerView.Adapter<LaunchesAdapter.ViewHo
         Launch launch = results.get(position);
 
         holder.tvHolder.setText(launch.getMissions().toString());
-
-
-
-
-
-
-
-
-
+        
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -30,10 +32,19 @@ public class MainActivity extends AppCompatActivity implements HomeContract.View
 
     private final HomeContract.Presenter presenter = new HomePresenter(this);
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        RecyclerView recyclerView = findViewById(R.id.rvData);
+        recyclerView.setAdapter(launchesAdapter);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         displayDate = findViewById(R.id.tvName);
 

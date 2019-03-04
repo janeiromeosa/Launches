@@ -18,8 +18,6 @@ import java.util.List;
     }
 
 
-
-
     @Override
     public void onSuccess(LaunchResponse launchResponse) {
         view.showLaunches(launchResponse.getLaunches());
